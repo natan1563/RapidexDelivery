@@ -1,3 +1,15 @@
+<!-- Objeto Produto -->
+<?php
+
+require_once '../App/Controllers/Products.php';
+
+use Products\Products;
+
+$resources = Products::listProducts();
+
+//Products::createProduct('Bobó de camarão', ['Camarão, azeite, arroz, pirão, pimenta']);
+?>
+
 <!-- Head -->
 <?php require_once '../App/template/head.php'; ?>
 
@@ -7,89 +19,25 @@
 
     <div class="mt-3 w-75 py-4 border border-danger rounded mx-auto mt-1 bg-danger container">
         <div class="row row-cols-1 row-cols-md-2 g-4">
-            <div class="col">
-                <div class="card mt-2">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card mt-2">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card mt-2">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                            additional content.</p>
-                    </div>
-                </div>
-            </div>
-			
-            <div class="col">
-                <div class="card mt-2">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
-                    </div>
-                </div>
-            </div>
 
-			<div class="col">
+        <?php foreach($resources as $resource):  $ingredients = explode(',', $resource->data->ingredients[0]); ?>
+            <div class="col">
                 <div class="card mt-2">
-                    <img src="..." class="card-img-top" alt="...">
+                    
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
-                    </div>
-                </div>
-            </div>
+                        <h5 class="card-title"><?=$resource->data->name?></h5>
+                        <p class="card-text"><?=$resource->data->description?></p>
+                        <ul>
+                        <?php foreach($ingredients as $ingredient): ?>
+                            
+                            <li><?=$ingredient?></li>
 
-			<div class="col">
-                <div class="card mt-2">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
+                        <?php endforeach?>
+                        </ul>
                     </div>
                 </div>
             </div>
-			<div class="col">
-                <div class="card mt-2">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
-                    </div>
-                </div>
-            </div>
-			<div class="col">
-                <div class="card mt-2">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
-                    </div>
-                </div>
-            </div>
+        <?php endforeach ?>
         </div>
     </div>
 </body>
