@@ -1,6 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-dark">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
-        aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Alterna navegação">
+<nav class="mb-2 navbar navbar-expand-lg navbar-light bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Alterna navegação">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -18,7 +17,7 @@
             <li class="nav-item">
                 <a class="nav-link text-light" href="#">Cadastre-se</a>
             </li>
-            
+
         </ul>
     </div>
     <form class="form-inline my-3 my-lg-0">
